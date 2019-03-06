@@ -1,0 +1,48 @@
+
+
+<div class="panel-header panel-header-sm">
+</div>
+<div class="main-content">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title"> Dimensão Organização</h4>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table mdbTable class="table table-striped w-auto">
+              <thead class=" text-primary">
+                      <th>ID Dimensão</th>
+                      <th>ID Organização</th>
+                      <th>Sigla</th>
+                      <th>ID Regiao</th>
+                      <th>Sigla Regiao</th>
+                      <th>ID UR</th>
+                      <th>Unidade Regional</th>
+                      <th>ID Localidade</th>
+                      <th>Localidade</th>
+                      <th>Setor</th>
+              </thead>
+              <tbody>
+                <tr class="text-center" *ngFor="let i of listaOrganizacao">
+                      <td>{{i.idOrganizacao}}</td>
+                      <td>{{i.siglaEmpresa}}</td>
+                      <td>{{i.regiao}}</td>
+                      <td>{{i.nomeRegiao}}</td>
+                      <td>{{i.unidade}}</td>
+                      <td>{{i.nomeUnidade}}</td>
+                      <td>{{i.localidade}}</td>
+                      <td>{{i.nomeLocalidade}}</td>
+                      <td>{{i.setor}}</td>
+
+                    </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>  
+  

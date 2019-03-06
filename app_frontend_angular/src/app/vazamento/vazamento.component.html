@@ -1,0 +1,70 @@
+<div class="panel-header panel-header-sm">
+</div>
+<div class="main-content">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title">Registro de Vazamentos</h4>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table mdbTable class="table table-striped w-auto">
+              <thead class=" text-primary">
+                <tr>
+                  <th>ID</th>
+                  <th>Numero da Solicitação</th>
+                  <th>Tipo</th>
+                  <th>Especificação</th>
+                  <th>Ano</th>
+                  <th>Mês</th>
+                  <th>Região</th>
+                  <th>Unidade</th>
+                  <th>Localidade</th>
+                  <th>Setor</th>
+                  <th>Bairro</th>
+                  <th>Logradouro</th>
+                  <th>Município</th>
+                  <th>Solicitação</th>
+                  <th>Execução</th>
+                  <th>Dia</th>
+                  <th>Horas</th>
+                  <th>Perda</th>
+                  <th>Perda R$</th>
+                  <th>Latitude</th>
+                  <th>Longitude</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="text-center" *ngFor="let i of listaVazamento">
+                  <td>{{i.id}}</td>
+                  <td>{{i.numerosolicitacao}}</td>
+                  <td>{{i.tiposolicitacao}}</td>
+                  <td>{{i.codespecificacao}}</td>
+                  <td>{{i.ano}}</td>
+                  <td>{{i.mes}}</td>
+                  <td>{{i.regiao}}</td>
+                  <td>{{i.unidadeRegional}}</td>
+                  <td>{{i.localidade}}</td>
+                  <td>{{i.setor}}</td>
+                  <td>{{i.bairro}}</td>
+                  <td>{{i.logradouro}}</td>
+                  <td>{{i.municipio}}</td>
+                  <td>{{i.datahorasolicitacao}}</td>
+                  <td>{{i.datahorafimexecucao}}</td>
+                  <td>{{datadia}}</td>
+                  <td>{{i.qtdHorasDia}} h</td>
+                  <td>{{i.qtdPerdaDia}} m³</td>
+                  <td>R${{i.valorPerda}}</td>
+                  <td>{{i.latitude}}</td>
+                  <td>{{i.longitude}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>  
+      
