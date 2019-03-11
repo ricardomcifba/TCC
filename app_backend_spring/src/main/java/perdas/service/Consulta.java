@@ -10,6 +10,7 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Service;
 
 import perdas.model.Bairro;
+import perdas.model.FatoDimensoes;
 import perdas.model.Organizacao;
 import perdas.model.Tempo;
 
@@ -88,6 +89,38 @@ public class Consulta {
 			}	    	
 	    });
 	}
+	
+	public List<FatoDimensoes> FatoDim(){
+		String sqlFatoDim =
+				"select f.id_fato,f.total,f.perda_agua,f.perda_financeira,o.*,e.id_endereco,e.uf,e.nome_municipio,e.nome_bairro,e.nome_logradouro, s.*,t.* from bi.tabela_fato  f\r\n" + 
+				"join bi.unidade_organizacional o on f.id_organizacao = o.id_organizacao\r\n" + 
+				"join bi.endereco_solicitacao e on f.id_endereco = e.id_endereco\r\n" + 
+				"join bi.tipo_servico s on f.id_servico = s.id_servico\r\n" + 
+				"join bi.tempo t on f.id_tempo = t.id_tempo\r\n" + 
+				"order by mes,data_dia";
+	
+		 return jdbcTemplate.query(sqlFatoDim, new RowMapper<FatoDimensoes>() {
+
+				@Override
+				public FatoDimensoes mapRow(ResultSet rs, int rowNum) throws SQLException {
+					FatoDimensoes resultado = new FatoDimensoes(rs.getInt("id_fato"),rs.getInt("total"),rs.getDouble("perda_agua"),rs.getDouble("perda_financeira"),
+																rs.getInt("id_organizacao"),rs.getInt("empresa"),rs.getString("sigla_empresa"),rs.getInt("regiao"),
+																rs.getString("nome_regiao"),rs.getInt("unidade"),rs.getString("nome_unidade"),rs.getInt("localidade"),
+																rs.getString("nome_localidade"),rs.getInt("setor"),rs.getInt("id_endereco"),rs.getString("uf"),rs.getString("nome_municipio"),
+																rs.getString("nome_bairro"),rs.getString("nome_logradouro"),rs.getInt("id_servico"),rs.getInt("tipo_servico"),
+																rs.getString("descricao_servico"),rs.getInt("cod_especificacao"),rs.getString("descricao_especificacao"),rs.getInt("id_tempo"),
+																rs.getDate("data_dia"),rs.getInt("ano"),rs.getInt("mes"),rs.getString("nome_mes"),rs.getInt("dia"),rs.getInt("dia_do_ano"),
+																rs.getString("dia_da_semana"),rs.getString("quarto"),rs.getString("ano_quarto"),rs.getString("ano_mes_ref"),
+																rs.getDate("inicio_semana"),rs.getDate("final_semana"),rs.getDate("inicio_mes"),rs.getDate("final_mes"));
+
+					return resultado;
+					
+				}	    	
+		    });
+		}
+	
+	
+	
 	
 //Para retornar qualuqer tipo de informação independente de possuir classes criadas.
 //Interessante para selects na base utilizando joins, agregações e afins	

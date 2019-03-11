@@ -9,10 +9,16 @@ import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
 import { AppComponent } from './app.component';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
+import { BrowserModule } from '@angular/platform-browser';
+import { AgmCoreModule} from '@agm/core'
 
 @NgModule({
   imports: [
     BrowserAnimationsModule,
+    BrowserModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyDrCAvjRqSSmylyzP8ufwjvUc7LF4Mh7Ho'
+    }),
     FormsModule,
     HttpClientModule,
     ComponentsModule,

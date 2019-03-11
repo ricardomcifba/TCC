@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import perdas.model.Bairro;
+import perdas.model.FatoDimensoes;
 import perdas.model.Organizacao;
 import perdas.model.Tempo;
 import perdas.service.Consulta;
@@ -58,5 +59,15 @@ public class ConsultaController {
 				(entities.isEmpty() ? HttpStatus.NO_CONTENT : HttpStatus.OK)
 			);
 	}
+
+	@GetMapping(value="/fatodim", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<FatoDimensoes>> ctlFatoDim(){
+        List<FatoDimensoes> entities = service.FatoDim();
+		return new ResponseEntity<List<FatoDimensoes>>(
+				entities,
+				(entities.isEmpty() ? HttpStatus.NO_CONTENT : HttpStatus.OK)
+			);
+	}
+
 
 }
