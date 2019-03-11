@@ -1,12 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import * as Chartist from 'chartist';
 
+import { FatoService } from './dashboard.service';
+
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
+
   public lineBigDashboardChartType;
   public gradientStroke;
   public chartColor;
@@ -38,6 +41,7 @@ export class DashboardComponent implements OnInit {
   public lineChartGradientsNumbersOptions:any;
   public lineChartGradientsNumbersLabels:Array<any>;
   public lineChartGradientsNumbersColors:Array<any>
+  public listaTempo:Array<any>;
   // events
   public chartClicked(e:any):void {
     console.log(e);
@@ -57,7 +61,7 @@ export class DashboardComponent implements OnInit {
       return "rgb(" + r + ", " + g + ", " + b + ")";
     }
   }
-  constructor() { }
+  constructor(private service: FatoService) { }
 
   ngOnInit() {
     this.chartColor = "#FFFFFF";
@@ -83,7 +87,7 @@ export class DashboardComponent implements OnInit {
           fill: true,
 
           borderWidth: 2,
-          data: [50, 150, 100, 190, 130, 90, 150, 160, 120, 140, 190, 95]
+          data: [50, 150, 100, 1990, 130, 90, 150, 160, 120, 140, 190, 95]
         }
       ];
       this.lineBigDashboardChartColors = [

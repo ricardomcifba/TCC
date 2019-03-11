@@ -69,7 +69,7 @@ public class Consulta {
 	public List<Tempo> ctTempo() {
 		
 		String sqlTempo =
-				"select mes, nome_mes, count(*) total, "+ 
+				"select mes, nome_mes, count(total) total, "+ 
 				"round(sum(perda_agua)::numeric,2)::double precision perdaA, "+
 				"round(sum(perda_financeira)::numeric,2)::double precision perdaF " +
 				"from fato f "+
