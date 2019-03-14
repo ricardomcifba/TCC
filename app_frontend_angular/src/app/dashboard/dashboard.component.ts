@@ -40,9 +40,12 @@ export class DashboardComponent implements OnInit {
   public lineChartGradientsNumbersData:Array<any>;
   public lineChartGradientsNumbersOptions:any;
   public lineChartGradientsNumbersLabels:Array<any>;
-  public lineChartGradientsNumbersColors:Array<any>
-  public listaTempo:Array<any>;
-  // events
+  public lineChartGradientsNumbersColors:Array<any>;
+  public perdas;
+  public meses;
+  public tempo = [];
+  
+   // events
   public chartClicked(e:any):void {
     console.log(e);
   }
@@ -61,9 +64,22 @@ export class DashboardComponent implements OnInit {
       return "rgb(" + r + ", " + g + ", " + b + ")";
     }
   }
+
+  
   constructor(private service: FatoService) { }
 
+  
+
   ngOnInit() {
+    
+     this.service.listarTempo().subscribe(resposta => {      
+    this.meses = resposta['meses'].map(resposta => resposta.nomeMes);
+    this.perdas = resposta['meses'].map(resposta => resposta.perdaA);
+    console.log(this.meses,this.perdas)      
+    }) 
+/*     this.service.listTempo().subscribe(data => this.tempo = data);
+    console.log(this.tempo) */
+    
     this.chartColor = "#FFFFFF";
     this.canvas = document.getElementById("bigDashboardChart");
     this.ctx = this.canvas.getContext("2d");
@@ -87,7 +103,7 @@ export class DashboardComponent implements OnInit {
           fill: true,
 
           borderWidth: 2,
-          data: [50, 150, 100, 1990, 130, 90, 150, 160, 120, 140, 190, 95]
+          data: this.perdas//[50, 150, 100, 199.05, 130, 90, 150, 160, 120, 140, 190, 95]
         }
       ];
       this.lineBigDashboardChartColors = [

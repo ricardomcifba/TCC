@@ -13,10 +13,9 @@ declare var opt_options;
 new MarkerClusterer(map, opt_markers, opt_options); 
  */
 interface Marker {
-lat: number;
-lng: number;
-label?: string;
-draggable?: boolean;
+solicitacao: number;
+lat: string;
+lng: string;
 }
 @Component({
   selector: 'app-maps',
@@ -27,19 +26,27 @@ export class MapsComponent implements OnInit {
 
   vazamentoAnalises: Array<any>;
   vazamento: any;
+  solicitacao;
+  lat;
+  long;
 
   constructor(private service: VazamentoService) {}
 
-    processarForm(frm: FormGroup) {
-/*     this.service.criar(this.vazamento).subscribe(resposta => {this.vazamentoAnalises.push(resposta);
-      frm.reset();
-    }); */
-  }
+
 
   ngOnInit() {
 
-    this.vazamento = {};
-    this.service.listar().subscribe(resposta => this.vazamentoAnalises = resposta);
+    this.service.listar().subscribe(resposta => {
+        this.solicitacao = resposta['registros'].map(resposta => resposta.numerosolicitacao)
+        this.lat = resposta['registros'].map(resposta => resposta.latitude)
+        this.long = resposta['registros'].map(resposta => resposta.longitude)
+        console.log(this.solicitacao,this.lat,this.long)
+        //marker.solicitacao = this.solicitacao
+        //marker.lat = this.lat
+        //marker.lng = this.long
+        //console.log(marker)
+
+    });
     
     var myLatlng = new google.maps.LatLng(-12.9665727, -38.4639189);
     //var myLatlng = new google.maps.LatLng(this.vazamento.latitude, this.vazamento.latitude);

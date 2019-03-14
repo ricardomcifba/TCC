@@ -11,7 +11,7 @@ export class VazamentoService {
   constructor(private http: HttpClient) { }
 
   listar() {
-    return this.http.get<Array<Location>>(this.analiseVazamentoUrl);
+    return this.http.get(this.analiseVazamentoUrl).map(resp => resp);
   }
 
 }

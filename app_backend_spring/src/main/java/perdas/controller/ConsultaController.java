@@ -1,6 +1,8 @@
 package perdas.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -42,22 +44,38 @@ public class ConsultaController {
 	}
 	*/
 	
-	@GetMapping(value="/tempo", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<List<Tempo>> ctTmp(){
+	@GetMapping(value="/tempoOr", produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<Tempo> ctTmp(){
         List<Tempo> entities = service.ctTempo();
-		return new ResponseEntity<List<Tempo>>(
+		/*return new ResponseEntity<List<Tempo>>(
 				entities,
 				(entities.isEmpty() ? HttpStatus.NO_CONTENT : HttpStatus.OK)
-			);
+			);*/
+        return entities;
+	}
+	
+	@GetMapping(value="/tempo", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Map<String, List<Tempo>> ctlTmp(){
+        HashMap<String,List<Tempo>> entities = new HashMap<String,List<Tempo>>();
+        		entities.put("meses",service.ctTempo());
+//        ResponseEntity<List<Bairro>> rs = new ResponseEntity<List<Bairro>>(
+//				entities,
+//				(entities.isEmpty() ? HttpStatus.NO_CONTENT : HttpStatus.OK)
+//			);
+		return entities
+			;
 	}
 	
 	@GetMapping(value="/bairro", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<List<Bairro>> ctlEnd(){
-        List<Bairro> entities = service.ctEndereco();
-		return new ResponseEntity<List<Bairro>>(
-				entities,
-				(entities.isEmpty() ? HttpStatus.NO_CONTENT : HttpStatus.OK)
-			);
+    public Map<String, List<Bairro>> ctlEnd(){
+        HashMap<String,List<Bairro>> entities = new HashMap<String,List<Bairro>>();
+        		entities.put("bairros",service.ctEndereco());
+//        ResponseEntity<List<Bairro>> rs = new ResponseEntity<List<Bairro>>(
+//				entities,
+//				(entities.isEmpty() ? HttpStatus.NO_CONTENT : HttpStatus.OK)
+//			);
+		return entities
+			;
 	}
 
 	@GetMapping(value="/fatodim", produces = MediaType.APPLICATION_JSON_VALUE)
