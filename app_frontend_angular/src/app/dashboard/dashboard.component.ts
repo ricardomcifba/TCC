@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+/* import { Component, OnInit } from '@angular/core';
 import * as Chartist from 'chartist';
 
 import { FatoService } from './dashboard.service';
@@ -73,12 +73,12 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {
     
      this.service.listarTempo().subscribe(resposta => {      
-    this.meses = resposta['meses'].map(resposta => resposta.nomeMes);
-    this.perdas = resposta['meses'].map(resposta => resposta.perdaA);
-    console.log(this.meses,this.perdas)      
-    }) 
-/*     this.service.listTempo().subscribe(data => this.tempo = data);
-    console.log(this.tempo) */
+    let meses = resposta['meses'].map(resposta => resposta.nomeMes);
+    let perdasA = resposta['meses'].map(resposta => resposta.perdaA);
+    //console.log(this.meses,this.perdas)      
+     
+//     this.service.listTempo().subscribe(data => this.tempo = data);
+//    console.log(this.tempo) 
     
     this.chartColor = "#FFFFFF";
     this.canvas = document.getElementById("bigDashboardChart");
@@ -103,7 +103,7 @@ export class DashboardComponent implements OnInit {
           fill: true,
 
           borderWidth: 2,
-          data: this.perdas//[50, 150, 100, 199.05, 130, 90, 150, 160, 120, 140, 190, 95]
+          data: perdasA//[50, 150, 100, 199.05, 130, 90, 150, 160, 120, 140, 190, 95]
         }
       ];
       this.lineBigDashboardChartColors = [
@@ -116,7 +116,7 @@ export class DashboardComponent implements OnInit {
          pointHoverBorderColor: this.chartColor,
        }
      ];
-    this.lineBigDashboardChartLabels = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
+    this.lineBigDashboardChartLabels = meses//["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
     this.lineBigDashboardChartOptions = {
 
           layout: {
@@ -425,5 +425,85 @@ export class DashboardComponent implements OnInit {
       }
 
     this.lineChartGradientsNumbersType = 'bar';
+  })
+  }
+}
+ */
+
+import { Component } from '@angular/core';
+import { FatoService } from './dashboard.service';
+import { ChartOptions, ChartType, ChartDataSets } from 'chart.js';
+//import * as pluginDataLabels from 'chartjs-plugin-datalabels';
+//import { Label } from 'ng2-charts';
+import { Chart } from 'chart.js';
+
+@Component({
+  selector: 'app-dashboard',
+  templateUrl: './dashboard.component.html',
+  styleUrls: ['./dashboard.component.css']
+})
+export class DashboardComponent {
+
+  public barChartOptions: ChartOptions = {
+    responsive: true,
+    // We use these empty structures as placeholders for dynamic theming.
+    scales: { xAxes: [{}], yAxes: [{}] },
+    plugins: {
+      datalabels: {
+        anchor: 'end',
+        align: 'end',
+      }
+    }
+  };
+
+  public barChartLegend = true;
+
+  chart = [];
+  
+  constructor(private _weather: FatoService) {}
+
+  ngOnInit() {
+    this._weather.listarTempo()
+      .subscribe(res => {
+        
+        let perdaA = res['meses'].map(res => res.perdaA)
+        let perdaF = res['meses'].map(res => res.perdaF)
+        let meses = res['meses'].map(res => res.nomeMes)
+
+        this.chart = new Chart('canvas', {
+          type: 'line',
+          data: {
+            labels: meses,
+            datasets: [
+              {
+                label: 'Perda R$',
+                data: perdaF,
+                borderColor: '#3cba9f',
+                fill: false
+              },
+              {
+                label: 'Perda m³',
+                data: perdaA,
+                borderColor: '#ffcc00',
+                fill: false
+              },
+            ]
+          },
+          options: {
+            legend: {
+              display: true
+            },
+            scales: {
+              xAxes: [{
+                display: false
+              }],
+              yAxes: [{
+                display: true
+              }]
+            }
+          }
+        })
+
+      })
   }
 }

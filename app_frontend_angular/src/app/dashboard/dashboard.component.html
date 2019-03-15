@@ -1,4 +1,4 @@
-<div class="panel-header panel-header-lg">
+<!-- <div class="panel-header panel-header-lg">
     <canvas baseChart id="bigDashboardChart"
                 [datasets]="lineBigDashboardChartData"
                 [labels]="lineBigDashboardChartLabels"
@@ -66,7 +66,7 @@
         </div>
         <div class="card-body">
           <div class="chart-area">
-            <!-- <canvas id="lineChartExampleWithNumbersAndGrid"></canvas> -->
+            <!-- <canvas id="lineChartExampleWithNumbersAndGrid"></canvas> 
             <canvas baseChart id="lineChartExampleWithNumbersAndGrid"
                         [datasets]="lineChartWithNumbersAndGridData"
                         [labels]="lineChartWithNumbersAndGridLabels"
@@ -293,3 +293,20 @@
     </div>
   </div>
 </div>
+ -->
+ <div class="panel-header panel-header-sm">
+  </div>
+ <div class="main-content">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header">
+            <h4 class="card-title"> Perdas m³ x Perdas R$</h4>
+              <div *ngIf="chart">
+               <canvas id="canvas">{{ chart }}</canvas>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>  
+  </div>  

@@ -7,6 +7,7 @@ import { DashboardComponent } from '../../dashboard/dashboard.component';
 import { AnaliseComponent } from '../../analise/analise.component';
 import { OrganizacaoComponent } from '../../organizacao/organizacao.component';
 import { VazamentoComponent } from '../../vazamento/vazamento.component';
+import { BairroComponent } from '../../bairro/bairro.component';
 import { TableListComponent } from '../../table-list/table-list.component';
 import { MapsComponent } from '../../maps/maps.component';
 import { ChartsModule } from 'ng2-charts';
@@ -29,7 +30,8 @@ import { ToastrModule } from 'ngx-toastr';
     AnaliseComponent,
     TableListComponent,
     VazamentoComponent,
-    MapsComponent
+    MapsComponent,
+    BairroComponent
   ]
 })
 
