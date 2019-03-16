@@ -27,13 +27,15 @@ public class ConsultaController {
 	@Autowired
 	private Consulta service;
 	
-	@GetMapping(value="/organizacao", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<List<Organizacao>> ctlOrg(){
-        List<Organizacao> entities = service.ctOrganizacao();
-		return new ResponseEntity<List<Organizacao>>(
+	@GetMapping(value="/setor", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Map<String,List<Organizacao>> ctlOrg(){
+        HashMap<String,List<Organizacao>> entities = new HashMap<String,List<Organizacao>>(); 
+        entities.put("setor", service.ctOrganizacao());
+		/*return new ResponseEntity<List<Organizacao>>(
 				entities,
 				(entities.isEmpty() ? HttpStatus.NO_CONTENT : HttpStatus.OK)
-			);
+			);*/
+        return entities;
 	}
 /*	public ResponseEntity<List<Fato>> listagemAnalises() {
 		List<Fato> lListaAnalise = service.getAll();

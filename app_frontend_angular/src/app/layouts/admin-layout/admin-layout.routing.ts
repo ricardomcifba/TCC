@@ -7,6 +7,7 @@ import { VazamentoComponent } from '../../vazamento/vazamento.component';
 import { TableListComponent } from '../../table-list/table-list.component';
 import { BairroComponent } from '../../bairro/bairro.component';
 import { MapsComponent } from '../../maps/maps.component';
+import { SetorComponent } from '../../setor/setor.component';
 
 
 export const AdminLayoutRoutes: Routes = [
@@ -16,6 +17,7 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'analise',        component: AnaliseComponent },
     { path: 'organizacao',        component: OrganizacaoComponent },
     { path: 'vazamento',        component: VazamentoComponent },
-    { path: 'bairro',        component: BairroComponent }
+    { path: 'bairro',        component: BairroComponent },
+    { path: 'setor',        component: SetorComponent }
 
 ];
