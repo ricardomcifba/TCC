@@ -11,12 +11,10 @@ import { VazamentoService } from './vazamento.service';
 export class VazamentoComponent implements OnInit {
 
   listaVazamento: Array<any>;
-  vazamento: any;
 
   constructor(private service: VazamentoService) {}
 
   ngOnInit() {
-    this.vazamento = {};
     this.service.listar().subscribe(resposta => this.listaVazamento = resposta);
   }
 

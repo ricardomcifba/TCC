@@ -431,18 +431,16 @@ export class DashboardComponent implements OnInit {
  */
 
 import { Component } from '@angular/core';
-import { FatoService } from './dashboard.service';
+import { SetorService } from './setor.service';
 import { ChartOptions, ChartType, ChartDataSets } from 'chart.js';
-//import * as pluginDataLabels from 'chartjs-plugin-datalabels';
-//import { Label } from 'ng2-charts';
 import { Chart } from 'chart.js';
 
 @Component({
-  selector: 'app-dashboard',
-  templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.css']
+  selector: 'app-setor',
+  templateUrl: './setor.component.html',
+  styleUrls: ['./setor.component.css']
 })
-export class DashboardComponent {
+export class SetorComponent {
 
   public barChartOptions: ChartOptions = {
     responsive: true,
@@ -460,31 +458,33 @@ export class DashboardComponent {
 
   chart = [];
   
-  constructor(private service: FatoService) {}
+  constructor(private _weather: SetorService) {}
 
   ngOnInit() {
-    this.service.listarTempo()
+    this._weather.listarFato()
       .subscribe(res => {
         
-        let perdaA = res['meses'].map(res => res.perdaA)
-        let perdaF = res['meses'].map(res => res.perdaF)
-        let meses = res['meses'].map(res => res.nomeMes)
+        let perdaA = res['setor'].map(res => res.perdaA)
+        let perdaF = res['setor'].map(res => res.perdaF)
+        let setor = res['setor'].map(res => res.setor)
+        console.log(setor)
 
         this.chart = new Chart('canvas', {
           type: 'line',
-          data: {
-            labels: meses,
+
+             data: {
+            labels: setor,
             datasets: [
               {
                 label: 'Perda R$',
                 data: perdaF,
-                borderColor: '#3cba9f',
+                borderColor: 'blue',
                 fill: false
               },
               {
                 label: 'Perda m³',
                 data: perdaA,
-                borderColor: '#ffcc00',
+                borderColor: '#00796B',
                 fill: false
               },
             ]

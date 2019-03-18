@@ -1,0 +1,77 @@
+
+
+<div class="panel-header panel-header-sm">
+</div>
+<div class="main-content">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title"> Tabela Fato</h4>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table mdbTable class="table table-striped w-auto">
+              <thead class=" text-primary">
+                      <th>#</th>
+                      <th >ID Fato</th>
+                      <th>ID Organização</th>
+                      <th>ID Endereço</th>
+                      <th>ID Serviço</th>
+                      <th>ID Tempo</th>
+                      <th>Total Registros</th>
+                      <th>Perda m³</th>
+                      <th class="text-right">Perda Financeira</th>
+              </thead>
+              <tbody>
+                <tr class="text-center" *ngFor="let i of listaAnalises">
+                      <td>{{i+1}}</td>
+                      <td>{{i.idFato}}</td>
+                      <td>{{i.idOrganizacao}}</td>
+                      <td>{{i.idEndereco}}</td>
+                      <td>{{i.idServico}}</td>
+                      <td>{{i.idTempo}}</td>
+                      <td>{{i.total}}</td>
+                      <td>{{i.perdaAgua.toFixed(2)}}</td>
+                      <td>R$ {{i.perdaFinanceira.toFixed(2)}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- 
+<table mdbTable class="z-depth-1">
+    <thead>
+      <tr>
+        <th *ngFor="let head of headElements; let i = index" scope="col">{{head}}
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let el of elements; let i = index">
+        <th *ngIf="i+1 >= firstItemIndex && i < lastItemIndex" scope="row">{{el.idFato}}</th>
+        <td *ngIf="i+1 >= firstItemIndex && i < lastItemIndex">{{el.idOrganizacao}}</td>
+        <td *ngIf="i+1 >= firstItemIndex && i < lastItemIndex">{{el.idEndereco}}</td>
+        <td *ngIf="i+1 >= firstItemIndex && i < lastItemIndex">{{el.idServico}}</td>
+        <td *ngIf="i+1 >= firstItemIndex && i < lastItemIndex">{{el.idTempo}}</td>
+        <td *ngIf="i+1 >= firstItemIndex && i < lastItemIndex">{{el.total}}</td>
+        <td *ngIf="i+1 >= firstItemIndex && i < lastItemIndex">{{el.perdaAgua}}</td>
+        <td *ngIf="i+1 >= firstItemIndex && i < lastItemIndex">{{el.perdaFinanceira}}</td>
+      </tr>
+    </tbody>
+    <tfoot class="grey lighten-5 w-100">
+  
+      <tr>
+        <td colspan="4">
+          <mdb-table-pagination [searchDataSource]="element" (nextPageClick)="onNextPageClick($event)" (previousPageClick)="onPreviousPageClick($event)">
+          </mdb-table-pagination>
+        </td>
+      </tr>
+  
+    </tfoot>
+  </table>
+   -->

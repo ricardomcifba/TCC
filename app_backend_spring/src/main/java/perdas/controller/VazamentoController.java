@@ -33,25 +33,21 @@ public class VazamentoController {
 	 * @return, lista de analise já realizada pelo sistema e seus resultados;
 	 */
 	
-	/*@GetMapping(value="/listvaz", produces = MediaType.APPLICATION_JSON_VALUE)
+	@GetMapping(value="/listvaz", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<List<RegistroVazamento>> listagemVazamentos() {
 		List<RegistroVazamento> lListaVaz = service.getAll();
 		return new ResponseEntity<List<RegistroVazamento>>(
 				lListaVaz,
 			(lListaVaz.isEmpty() ? HttpStatus.NO_CONTENT : HttpStatus.OK)
 		);
-	}*/
+	}
 	
-	@GetMapping(value="/listvaz", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Map<String, List<RegistroVazamento>> listagemVazamentos(){
+	@GetMapping(value="/listmap", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Map<String, List<RegistroVazamento>> listagemMap(){
         HashMap<String,List<RegistroVazamento>> entities = new HashMap<String,List<RegistroVazamento>>();
         		entities.put("registros",service.getAll());
-//        ResponseEntity<List<Bairro>> rs = new ResponseEntity<List<Bairro>>(
-//				entities,
-//				(entities.isEmpty() ? HttpStatus.NO_CONTENT : HttpStatus.OK)
-//			);
-		return entities
-			;
+
+		return entities			;
 	}
 	
 	/**

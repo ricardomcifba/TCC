@@ -4,14 +4,15 @@ import { HttpClient } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
-export class VazamentoService {
+export class FatoService {
 
-  analiseVazamentoUrl = 'http://localhost:8080/vazamento/listmap';
+
+  analiseListagemUrl = 'http://localhost:8080/analise/listagem';
 
   constructor(private http: HttpClient) { }
 
   listar() {
-    return this.http.get(this.analiseVazamentoUrl).map(resp => resp);
+    return this.http.get(this.analiseListagemUrl).map(res => res);;
   }
-
+  
 }

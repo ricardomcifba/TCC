@@ -3,6 +3,7 @@ package perdas.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -13,7 +14,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-
+import perdas.dao.FatoDAO;
 import perdas.model.Fato;
 import perdas.service.Analise;
 @RestController
@@ -24,6 +25,8 @@ public class FatoController {
 
 	@Autowired
 	private Analise service;
+	@Autowired
+	private FatoDAO dao;
 
 	/**
 	 * Método responsável pela gerência de requisições GET.
@@ -40,6 +43,17 @@ public class FatoController {
 			(lListaAnalise.isEmpty() ? HttpStatus.NO_CONTENT : HttpStatus.OK)
 		);
 	}
+	
+	@GetMapping(value="/listpage", produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<?> listaPage(Pageable page) {
+		
+		System.err.println(page.getPageNumber());
+		System.err.println(page.getPageSize());
+
+		return new ResponseEntity<>(
+			 dao.findAll(page),  HttpStatus.OK)
+		;
+	}	
 	
 	/**
 	 * 
