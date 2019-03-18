@@ -13,7 +13,7 @@
           <div class="table-responsive">
             <table mdbTable class="table table-striped w-auto">
               <thead class=" text-primary">
-                      <th>#</th>
+<!--                       <th>#</th> -->
                       <th >ID Fato</th>
                       <th>ID Organização</th>
                       <th>ID Endereço</th>
@@ -24,8 +24,8 @@
                       <th class="text-right">Perda Financeira</th>
               </thead>
               <tbody>
-                <tr class="text-center" *ngFor="let i of listaAnalises">
-                      <td>{{i+1}}</td>
+                <tr class="text-center" *ngFor="let i of listaFato">
+<!--                       <td>{{i+1}}</td> -->
                       <td>{{i.idFato}}</td>
                       <td>{{i.idOrganizacao}}</td>
                       <td>{{i.idEndereco}}</td>

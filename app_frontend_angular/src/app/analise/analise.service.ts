@@ -14,9 +14,5 @@ export class AnaliseService {
   listar() {
     return this.http.get<Array<any>>(this.analiseListagemUrl);
   }
-
-  criar(analise: any) {
-    return this.http.post(this.analiseUrl, analise);
-  }
   
 }

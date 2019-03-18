@@ -1,6 +1,8 @@
 package perdas.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
@@ -16,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import perdas.dao.FatoDAO;
 import perdas.model.Fato;
+import perdas.model.Organizacao;
 import perdas.service.Analise;
 @RestController
 @RequestMapping("/analise")
@@ -53,7 +56,15 @@ public class FatoController {
 		return new ResponseEntity<>(
 			 dao.findAll(page),  HttpStatus.OK)
 		;
-	}	
+	}
+	
+	@GetMapping(value="/listagem1", produces = MediaType.APPLICATION_JSON_VALUE)
+	public Map<String,List<Fato>> listagem1() {
+		HashMap<String,List<Fato>> entities = new HashMap<String,List<Fato>>(); 
+		entities.put("fato", service.getAll());
+
+		return entities;
+	}
 	
 	/**
 	 * 
