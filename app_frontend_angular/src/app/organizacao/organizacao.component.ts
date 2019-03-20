@@ -11,12 +11,10 @@ import { OrganizacaoService } from './organizacao.service';
 export class OrganizacaoComponent implements OnInit {
 
   listaOrganizacao: Array<any>;
-  organizacao: any;
 
   constructor(private service: OrganizacaoService) {}
 
   ngOnInit() {
-    this.organizacao = {};
     this.service.listar().subscribe(resposta => this.listaOrganizacao = resposta);
   }
  

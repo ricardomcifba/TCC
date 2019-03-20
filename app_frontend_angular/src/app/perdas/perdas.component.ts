@@ -1,15 +1,17 @@
 
 import { Component } from '@angular/core';
-import { FatoService } from './bairro.service';
+import { PerdasService } from './perdas.service';
 import { ChartOptions, ChartType, ChartDataSets } from 'chart.js';
+//import * as pluginDataLabels from 'chartjs-plugin-datalabels';
+//import { Label } from 'ng2-charts';
 import { Chart } from 'chart.js';
 
 @Component({
-  selector: 'app-bairro',
-  templateUrl: './bairro.component.html',
-  styleUrls: ['./bairro.component.css']
+  selector: 'app-perdas',
+  templateUrl: './perdas.component.html',
+  styleUrls: ['./perdas.component.css']
 })
-export class BairroComponent {
+export class PerdasComponent {
 
   public barChartOptions: ChartOptions = {
     responsive: true,
@@ -27,47 +29,47 @@ export class BairroComponent {
 
   chart = [];
   
-  constructor(private _weather: FatoService) {}
+  constructor(private service: PerdasService) {}
 
   ngOnInit() {
-    this._weather.listarFato()
+    this.service.listarTempo()
       .subscribe(res => {
         
-        let perdaA = res['bairros'].map(res => res.perdaA)
-        let perdaF = res['bairros'].map(res => res.perdaF)
-        let bairro = res['bairros'].map(res => res.bairro)
+        let perdaA = res['meses'].map(res => res.perdaA)
+        let perdaF = res['meses'].map(res => res.perdaF)
+        let meses = res['meses'].map(res => res.nomeMes)
 
         this.chart = new Chart('canvas', {
           type: 'line',
           data: {
-            labels: bairro,
+            labels: meses,
             datasets: [
-              { 
+              {
                 label: 'Perda R$',
                 data: perdaF,
-                borderColor: 'yellow',
-                fill: true
+                borderColor: '#3cba9f',
+                fill: false
               },
-               { 
+              {
                 label: 'Perda m³',
                 data: perdaA,
-                borderColor: '#00796B',
+                borderColor: '#ffcc00',
                 fill: false
-              }, 
+              },
             ]
           },
           options: {
             legend: {
-              display: false
+              display: true
             },
-            /* scales: {
+            scales: {
               xAxes: [{
                 display: true
               }],
               yAxes: [{
                 display: true
               }]
-            } */
+            }
           }
         })
 

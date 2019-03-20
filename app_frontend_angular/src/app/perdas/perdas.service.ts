@@ -7,7 +7,7 @@ import 'rxjs/add/operator/map';
 @Injectable({
   providedIn: 'root'
 })
-export class FatoService {
+export class PerdasService {
   static listTempo(): any {
     throw new Error("Method not implemented.");
   }
