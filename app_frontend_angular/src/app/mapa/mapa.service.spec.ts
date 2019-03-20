@@ -1,31 +1,29 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-//import { TestBed } from '@angular/core/testing';
+import { MapaComponent } from './mapa.component';
+import { MapaService } from './mapa.service';
 
-import { AnaliseComponent } from './analise.component';
-import { AnaliseService } from './analise.service';
-
-describe('AnaliseService', () => {
+describe('MapaService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: AnaliseService = TestBed.get(AnaliseService);
+    const service: MapaService = TestBed.get(MapaService);
     expect(service).toBeTruthy();
   });
 });
 
-describe('AnaliseComponent', () => {
-  let component: AnaliseComponent;
-  let fixture: ComponentFixture<AnaliseComponent>;
+describe('MapaComponent', () => {
+  let component: MapaComponent;
+  let fixture: ComponentFixture<MapaComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AnaliseComponent ]
+      declarations: [ MapaComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AnaliseComponent);
+    fixture = TestBed.createComponent(MapaComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

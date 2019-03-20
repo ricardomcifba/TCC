@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AdminLayoutRoutes } from './admin-layout.routing';
 import { DashboardComponent } from '../../dashboard/dashboard.component';
-//import { AnaliseComponent } from '../../analise/analise.component';
+import { MapaComponent } from '../../mapa/mapa.component';
 import { OrganizacaoComponent } from '../../organizacao/organizacao.component';
 import { VazamentoComponent } from '../../vazamento/vazamento.component';
 import { BairroComponent } from '../../bairro/bairro.component';
@@ -29,7 +29,7 @@ import { ToastrModule } from 'ngx-toastr';
   declarations: [
     DashboardComponent,
     OrganizacaoComponent,
-    //AnaliseComponent,
+    MapaComponent,
     TableListComponent,
     VazamentoComponent,
     MapsComponent,
