@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MapaService } from './mapa.service';
-import { forEach } from '@angular/router/src/utils/collection';
 import {} from 'googlemaps';
 
+declare var MarkerClusterer: any;
 
 @Component({
   selector: 'app-mapa',
@@ -10,42 +10,56 @@ import {} from 'googlemaps';
   styleUrls: ['./mapa.component.css']
 })
 
-
 export class MapaComponent implements OnInit {
-
+  contatenar: string;
 
   constructor(private service: MapaService) {}
 
-
-
   ngOnInit() {
 
-    this.service.listar().subscribe(resposta => {
-      
-        //let solicitacao = resposta['registros'].map(resposta => resposta.numerosolicitacao)
-        let latitude = resposta['registros'].map(resposta => resposta.latitude)
-        let longitude = resposta['registros'].map(resposta => resposta.longitude)
-            
-        var myLatlng = new google.maps.LatLng(latitude, longitude);
+      this.service.listar().subscribe(resposta => {
+          let latitude = resposta['registros'].map(resposta => resposta.latitude)
+          let longitude = resposta['registros'].map(resposta => resposta.longitude)
+          let solicitacao = resposta['registros'].map(resposta => resposta.solicitacao)
+          let perdaA = resposta['registros'].map(resposta => resposta.perdaA)
           
-        var mapOptions = {
-            zoom: 13,
-            center: myLatlng,
-            scrollwheel: false, //we disable de scroll over the map, it is a really annoing when you scroll through page
-        };
+      var markers = [];
+      //var data = [];
+      //Contagem dos pontos no mapa   
+      //for(let i = 0; i< Object.keys(latitude).length;i++)
+      for(let i = 0; i< 500;i++)
+      {
+        //console.log(i)
+      var myLatlng = new google.maps.LatLng(latitude[i], longitude[i]);
+      //data.push(myLatlng);
+      var mapOptions = {
+          zoom: 13,
+          center: myLatlng,
+          scrollwheel: true, //Scroll do mouse habilitado
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+
+      };
+      var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+      this.contatenar = solicitacao.concat("perda de".concat(perdaA))
+      var marker = new google.maps.Marker({
+          position: myLatlng,
+          title: ""
+      });
+
+      markers.push(marker);
+      
+      
+      //Para adicionar marker no mapa
+      //marker.setMap(map);
+    }
     
-        var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+    //Para mapa de calor
+    //var heatmap = new google.maps.visualization.HeatmapLayer({
+    //  data: data
+    //});
+    //heatmap.setMap(map);
 
-        var marker = new google.maps.Marker({
-            position: myLatlng,
-            title: "Centro do Mapa"
-        });
-
-    // To add the marker to the map, call setMap();
-        marker.setMap(map); 
-  });
-
-
-
-}
+    var markerCluster = new MarkerClusterer(map, markers, {imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'} );
+    });
+  }
 }

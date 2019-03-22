@@ -10,7 +10,6 @@ import { VazamentoComponent } from '../../vazamento/vazamento.component';
 import { BairroComponent } from '../../bairro/bairro.component';
 import { SetorComponent } from '../../setor/setor.component';
 import { FatoComponent } from '../../fato/fato.component';
-import { MapsComponent } from '../../maps/maps.component';
 import { ChartsModule } from 'ng2-charts';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrModule } from 'ngx-toastr';
@@ -30,7 +29,6 @@ import { ToastrModule } from 'ngx-toastr';
     OrganizacaoComponent,
     MapaComponent,
     VazamentoComponent,
-    MapsComponent,
     BairroComponent,
     SetorComponent,
     FatoComponent

@@ -14,8 +14,7 @@ export const ROUTES: RouteInfo[] = [
     { path: '/bairro', title: 'Perdas por Bairro',  icon:'files_paper', class: '' },
     { path: '/organizacao', title: 'Dimensao Organização',  icon:'files_paper', class: '' },
     { path: '/vazamento', title: 'Registros de Vazamento',  icon:'files_paper', class: '' },
-    { path: '/maps', title: 'Mapa',  icon:'location_map-big', class: '' },
-    //{ path: '/mapa', title: 'Mapa',  icon:'files_paper', class: '' }
+    { path: '/mapa', title: 'Mapa',  icon:'files_paper', class: '' }
 
 ];
 
