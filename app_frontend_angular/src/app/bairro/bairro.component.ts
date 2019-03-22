@@ -26,13 +26,13 @@ export class BairroComponent {
   public barChartLegend = true;
 
   chart = [];
-  
-  constructor(private _weather: FatoService) {}
+
+  constructor(private _weather: FatoService) { }
 
   ngOnInit() {
     this._weather.listarFato()
       .subscribe(res => {
-        
+
         let perdaA = res['bairros'].map(res => res.perdaA)
         let perdaF = res['bairros'].map(res => res.perdaF)
         let bairro = res['bairros'].map(res => res.bairro)
@@ -42,18 +42,18 @@ export class BairroComponent {
           data: {
             labels: bairro,
             datasets: [
-              { 
+              {
                 label: 'Perda R$',
                 data: perdaF,
                 borderColor: 'yellow',
                 fill: true
               },
-               { 
+              {
                 label: 'Perda m³',
                 data: perdaA,
                 borderColor: '#00796B',
                 fill: false
-              }, 
+              },
             ]
           },
           options: {

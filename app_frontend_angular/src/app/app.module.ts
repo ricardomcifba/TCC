@@ -10,7 +10,8 @@ import { ComponentsModule } from './components/components.module';
 import { AppComponent } from './app.component';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { BrowserModule } from '@angular/platform-browser';
-import { AgmCoreModule} from '@agm/core'
+import { AgmCoreModule} from '@agm/core';
+import { PagerService } from '../../src/service/index';
 
 @NgModule({
   imports: [
@@ -32,7 +33,9 @@ import { AgmCoreModule} from '@agm/core'
     AdminLayoutComponent
 
   ],
-  providers: [],
+  providers: [
+    PagerService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

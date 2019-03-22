@@ -1,5 +1,3 @@
-
-
 <div class="panel-header panel-header-sm">
 </div>
 <div class="main-content">
@@ -7,71 +5,117 @@
     <div class="col-md-12">
       <div class="card">
         <div class="card-header">
-          <h4 class="card-title"> Tabela Fato</h4>
+          <h4 class="card-title">Tabela Fato</h4>
+          <button (click)="download()">Exportar Dados</button>
         </div>
         <div class="card-body">
           <div class="table-responsive">
             <table mdbTable class="table table-striped w-auto">
               <thead class=" text-primary">
-<!--                       <th>#</th> -->
-                      <th >ID Fato</th>
-                      <th>ID Organização</th>
-                      <th>ID Endereço</th>
-                      <th>ID Serviço</th>
-                      <th>ID Tempo</th>
-                      <th>Total Registros</th>
-                      <th>Perda m³</th>
-                      <th class="text-right">Perda Financeira</th>
+                <th>ID Fato</th>
+                <th>Total Registros</th>
+                <th>Perda m³</th>
+                <th class="text-right">Perda Financeira</th>
+                <th>ID Organização</th>
+                <th>ID Empresa</th>
+                <th>Nome Empresa</th>
+                <th>ID Região</th>
+                <th>Sigla Região</th>
+                <th>ID Unidade</th>
+                <th>Sigla Unidade</th>
+                <th>ID Localidade</th>
+                <th>Nome Localidade</th>
+                <th>Setor</th>
+                <th>ID Endereço</th>
+                <th>UF</th>
+                <th>Municipio</th>
+                <th>Bairro</th>
+                <th>Logradouro</th>
+                <th>ID Serviço</th>
+                <th>ID Tipo</th>
+                <th>Serviço</th>
+                <th>ID Especif.</th>
+                <th>Especificação</th>
+                <th>ID Tempo</th>
+                <th>Data</th>
+                <th>Ano</th>
+                <th>Mês</th>
+                <th>Dia</th>
+                <th>Dia do Ano</th>
+                <th>Dia da semana</th>
+                <th>Quarto</th>
+                <th>Ano/Quarto</th>
+                <th>Ano/Mês Ref.</th>
+                <th>Inicio Semana</th>
+                <th>Fim Semana</th>
+                <th>início Mês</th>
+                <th>Fim Mês</th>
+                <th>Nome Mês</th>
               </thead>
               <tbody>
-                <tr class="text-center" *ngFor="let i of listaFato">
-<!--                       <td>{{i+1}}</td> -->
-                      <td>{{i.idFato}}</td>
-                      <td>{{i.idOrganizacao}}</td>
-                      <td>{{i.idEndereco}}</td>
-                      <td>{{i.idServico}}</td>
-                      <td>{{i.idTempo}}</td>
-                      <td>{{i.total}}</td>
-                      <td>{{i.perdaAgua.toFixed(2)}}</td>
-                      <td>R$ {{i.perdaFinanceira.toFixed(2)}}</td>
+                <tr class="text-center" *ngFor="let i of pagedItems">
+                  <td>{{i.idFato}}</td>
+                  <td>{{i.total}}</td>
+                  <td>{{i.perdaAgua.toFixed(2)}}</td>
+                  <td>{{i.perdaFinanceira.toFixed(2)}}</td>
+                  <td>{{i.idOrganizacao}}</td>
+                  <td>{{i.empresa}}</td>
+                  <td>{{i.nomeEmpresa}}</td>
+                  <td>{{i.regiao}}</td>
+                  <td>{{i.nomeRegiao}}</td>
+                  <td>{{i.unidade}}</td>
+                  <td>{{i.siglaUnidade}}</td>
+                  <td>{{i.localidade}}</td>
+                  <td>{{i.nomeLocalidade}}</td>
+                  <td>{{i.setor}}</td>
+                  <td>{{i.idEndereco}}</td>
+                  <td>{{i.uf}}</td>
+                  <td>{{i.municipio}}</td>
+                  <td>{{i.bairro}}</td>
+                  <td>{{i.logradouro}}</td>
+                  <td>{{i.idServico}}</td>
+                  <td>{{i.tipo}}</td>
+                  <td>{{i.descTipo}}</td>
+                  <td>{{i.espec}}</td>
+                  <td>{{i.descEspec}}</td>
+                  <td>{{i.idTempo}}</td>
+                  <td>{{i.datadia | date:'dd-MM-yyyy'}}</td>
+                  <td>{{i.ano}}</td>
+                  <td>{{i.mes}}</td>
+                  <td>{{i.dia}}</td>
+                  <td>{{i.diaAno}}</td>
+                  <td>{{i.diaSemana}}</td>
+                  <td>{{i.quarto}}</td>
+                  <td>{{i.anoQuarto}}</td>
+                  <td>{{i.anoMes}}</td>
+                  <td>{{i.inicioSemana | date:'dd-MM-yyyy'}}</td>
+                  <td>{{i.finalSemana | date:'dd-MM-yyyy'}}</td>
+                  <td>{{i.inicioMes | date:'dd-MM-yyyy'}}</td>
+                  <td>{{i.finalMes | date:'dd-MM-yyyy'}}</td>
+                  <td>{{i.nomemes}}</td>
                 </tr>
               </tbody>
             </table>
+            <ul *ngIf="pager.pages && pager.pages.length" class="pagination">
+              <li [ngClass]="{disabled:pager.currentPage === 1}">
+                <a (click)="setPage(1)">Primeira</a>
+              </li>
+              <li [ngClass]="{disabled:pager.currentPage === 1}">
+                <a (click)="setPage(pager.currentPage - 1)">Anterior</a>
+              </li>
+              <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
+                <a (click)="setPage(page)">{{page}}</a>
+              </li>
+              <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+                <a (click)="setPage(pager.currentPage + 1)">Próxima</a>
+              </li>
+              <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+                <a (click)="setPage(pager.totalPages)">Última</a>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
-<!-- 
-<table mdbTable class="z-depth-1">
-    <thead>
-      <tr>
-        <th *ngFor="let head of headElements; let i = index" scope="col">{{head}}
-        </th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let el of elements; let i = index">
-        <th *ngIf="i+1 >= firstItemIndex && i < lastItemIndex" scope="row">{{el.idFato}}</th>
-        <td *ngIf="i+1 >= firstItemIndex && i < lastItemIndex">{{el.idOrganizacao}}</td>
-        <td *ngIf="i+1 >= firstItemIndex && i < lastItemIndex">{{el.idEndereco}}</td>
-        <td *ngIf="i+1 >= firstItemIndex && i < lastItemIndex">{{el.idServico}}</td>
-        <td *ngIf="i+1 >= firstItemIndex && i < lastItemIndex">{{el.idTempo}}</td>
-        <td *ngIf="i+1 >= firstItemIndex && i < lastItemIndex">{{el.total}}</td>
-        <td *ngIf="i+1 >= firstItemIndex && i < lastItemIndex">{{el.perdaAgua}}</td>
-        <td *ngIf="i+1 >= firstItemIndex && i < lastItemIndex">{{el.perdaFinanceira}}</td>
-      </tr>
-    </tbody>
-    <tfoot class="grey lighten-5 w-100">
-  
-      <tr>
-        <td colspan="4">
-          <mdb-table-pagination [searchDataSource]="element" (nextPageClick)="onNextPageClick($event)" (previousPageClick)="onPreviousPageClick($event)">
-          </mdb-table-pagination>
-        </td>
-      </tr>
-  
-    </tfoot>
-  </table>
-   -->

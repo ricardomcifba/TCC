@@ -6,12 +6,12 @@ import { HttpClient } from '@angular/common/http';
 })
 export class FatoService {
 
-  analiseListagemUrl = 'http://localhost:8080/analise/listagem';
+  analiseListagemUrl = 'http://EMB641C6765D718:8080/consulta/fatodim';
 
   constructor(private http: HttpClient) { }
 
   listar() {
     return this.http.get<Array<any>>(this.analiseListagemUrl);
-  }
-  
+  };
+
 }

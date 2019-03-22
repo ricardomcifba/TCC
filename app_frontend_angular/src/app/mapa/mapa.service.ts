@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
 
 export class MapaService {
 
-  mapaUrl = 'http://localhost:8080/vazamento/listmap';
+  mapaUrl = 'http://EMB641C6765D718:8080/vazamento/listmap';
 
   constructor(private http: HttpClient) { }
 

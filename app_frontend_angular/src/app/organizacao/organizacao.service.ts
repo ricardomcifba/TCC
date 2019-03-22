@@ -6,8 +6,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class OrganizacaoService {
 
-  organizacaoUrl = 'http://localhost:8080/org';
-  organizacaoListagemUrl = 'http://localhost:8080/org/listorg';
+  organizacaoListagemUrl = 'http://EMB641C6765D718:8080/org/listorg';
 
   constructor(private http: HttpClient) { }
 
@@ -15,8 +14,4 @@ export class OrganizacaoService {
     return this.http.get<Array<any>>(this.organizacaoListagemUrl);
   }
 
-  criar(organizacao: any) {
-    return this.http.post(this.organizacaoUrl, organizacao);
-  }
-  
 }
