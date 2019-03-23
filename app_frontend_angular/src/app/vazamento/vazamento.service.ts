@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class VazamentoService {
 
-  vazamentoListagemUrl = 'http://EMB641C6765D718:8080/vazamento/listvaz';
+  vazamentoListagemUrl = 'http://localhost:8080/vazamento/listvaz';
 
   constructor(private http: HttpClient) { }
 

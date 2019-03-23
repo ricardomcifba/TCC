@@ -7,7 +7,7 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
 var routes = [
     {
         path: '',
-        redirectTo: 'maps',
+        redirectTo: 'mapa',
         pathMatch: 'full',
     }, {
         path: '',
@@ -21,7 +21,7 @@ var routes = [
     },
     {
         path: '**',
-        redirectTo: 'dashboard'
+        redirectTo: 'fato'
     }
 ];
 var AppRoutingModule = /** @class */ (function () {

@@ -12,6 +12,7 @@ import { AppComponent } from './app.component';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { AgmCoreModule } from '@agm/core';
+import { PagerService } from '../../src/service/index';
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -35,7 +36,9 @@ var AppModule = /** @class */ (function () {
                 AppComponent,
                 AdminLayoutComponent
             ],
-            providers: [],
+            providers: [
+                PagerService
+            ],
             bootstrap: [AppComponent]
         })
     ], AppModule);
