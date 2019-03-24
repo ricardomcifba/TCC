@@ -1,6 +1,6 @@
 @echo off
 
-java -jar "C:\TCC\DBS\DBS.jar" "C:\TCC\Tabela_Fato.sql"
+java -jar "C:\TCC\CARGA\DBS\DBS.jar" "C:\TCC\CARGA\Tabela_Fato.sql"
 
 pause
 

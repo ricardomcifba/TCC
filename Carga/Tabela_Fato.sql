@@ -8,15 +8,16 @@ select random(999999999) as proc_id
 
 #source = db1-TCC.conf
 $SHOW_SQL=false
-select 'id_vaz IS NOT NULL'::text as filtro,
-	   '@$Multiop{ (id_vaz) > (@id_vaz) }' as partida;
+select 'numerosolicitacao IS NOT NULL'::text as filtro,
+	   '@$Multiop{ (numerosolicitacao,datadia) > (@numerosolicitacao,''@datadia::native'') }' as partida;
  
 #source = db1-TCC.conf
 $REPEAT_WHILE_FOUND=true
 
 $SHOW_SQL=false
 select
-id_vaz,
+numerosolicitacao,
+datadia,
 id_organizacao,
 id_endereco,
 id_servico,
@@ -32,7 +33,7 @@ join bi.tempo dt on dv.datadia = dt.data_dia
 where @filtro::native
       @query=db1-TCC.conf{select ' and ('||condicaopartida||')' from bi.relatorio_carga
                     where tipo = 5 and escopo = @filtro order by id desc limit 1 }::native
-order by id_vaz,id_organizacao,id_endereco,id_servico,id_tempo
+order by numerosolicitacao,id_organizacao,id_endereco,id_servico,id_tempo
 limit 1
 
 #if found = 1
@@ -44,7 +45,7 @@ stop;
 #target = db1-TCC.conf
 $BATCH_SIZE=2
 $SHOW_SQL=false
-$LABEL=INSERT @#rowid: id_vaz = @id_vaz id_organizacao @id_organizacao,id_endereco = @id_endereco,id_servico = @id_servico,id_tempo = @id_tempo
+$LABEL=INSERT @#rowid: numerosolicitacao = @numerosolicitac datadia=@datadia id_organizacao @id_organizacao,id_endereco = @id_endereco,id_servico = @id_servico,id_tempo = @id_tempo
 
 insert into bi.tabela_fato 
 (

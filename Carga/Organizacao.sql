@@ -49,7 +49,7 @@ $LABEL=INSERT @#rowid: regiao=@regiao, unudade = @unidade, localidade = @localid
 
 insert into bi.unidade_organizacional
 (
-empresa,nome_empresa,regiao,sigla_regiao,unidade,sigla_unidade,localidade,nome_localidade,setor
+    empresa,sigla_empresa,regiao,nome_regiao,unidade,nome_unidade,localidade,nome_localidade,setor
 ) 
 values
 (

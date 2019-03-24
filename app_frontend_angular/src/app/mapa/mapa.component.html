@@ -6,8 +6,13 @@
     <div class="card-body ">
       <div class="row">
         <div class="col-md-12">
+          
           Mapa das Perdas
           <div class="card ">
+            <button (click)="ngOnInit()">Pontos no Mapa</button>
+            <button (click)="cluster()">Pontos Agrupados</button>
+            <button (click)="heatMap()">Mapa de Calor</button>
+
             <div id="map" class="map"></div>
           </div>
         </div>

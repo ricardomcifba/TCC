@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 })
 
 export class MapaService {
-
+  FatoUrl = 'http://localhost:8080/consulta/fatoMapa';
   mapaUrl = 'http://localhost:8080/vazamento/listmap';
 
   constructor(private http: HttpClient) { }
@@ -15,4 +15,7 @@ export class MapaService {
     return this.http.get(this.mapaUrl).map(resp => resp);
   }
 
+  listarFato() {
+    return this.http.get(this.FatoUrl).map(resp => resp);
+  };
 }

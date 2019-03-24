@@ -11,10 +11,10 @@ public class FatoDimensoes implements Serializable{
 	public FatoDimensoes(int idFato, int total, double perdaAgua, double perdaFinanceira, int idOrganizacao,
 			int empresa, String nomeEmpresa, int regiao, String nomeRegiao, int unidade, String siglaUnidade,
 			int localidade, String nomeLocalidade, int setor, int idEndereco, String uf, String municipio,
-			String bairro, String logradouro, int idServico, int tipo, String descTipo, int espec, String descEspec,
-			int idTempo, Date datadia, int ano, int mes, String nomemes, int dia, int diaAno, String diaSemana,
-			String quarto, String anoQuarto, String anoMes, Date inicioSemana, Date finalSemana, Date inicioMes,
-			Date finalMes) {
+			String bairro, String logradouro, String latitude, String longitude, int idServico, int tipo, 
+			String descTipo, int espec, String descEspec, int idTempo, Date datadia, int ano, int mes, String nomemes,
+			int dia, int diaAno, String diaSemana, String quarto, String anoQuarto, String anoMes, Date inicioSemana,
+			Date finalSemana, Date inicioMes, Date finalMes) {
 		super();
 		this.idFato = idFato;
 		this.total = total;
@@ -35,6 +35,8 @@ public class FatoDimensoes implements Serializable{
 		this.municipio = municipio;
 		this.bairro = bairro;
 		this.logradouro = logradouro;
+		this.latitude = latitude;
+		this.longitude = longitude;
 		this.idServico = idServico;
 		this.tipo = tipo;
 		this.descTipo = descTipo;
@@ -115,6 +117,12 @@ public class FatoDimensoes implements Serializable{
 	public String getLogradouro() {
 		return logradouro;
 	}
+	public String getLatitude() {
+		return latitude;
+	}
+	public String getLongitude() {
+		return longitude;
+	}
 	public int getIdServico() {
 		return idServico;
 	}
@@ -194,6 +202,8 @@ public class FatoDimensoes implements Serializable{
 	private String municipio;
 	private String bairro;
 	private String logradouro;
+	private String latitude;
+	private String longitude;
 	private int idServico;
 	private int tipo;
 	private String descTipo;

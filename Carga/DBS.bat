@@ -1,4 +1,4 @@
 @echo off
 
-java -jar "C:\TCC\DBS\DBS.jar"
+java -jar "C:\TCC\CARGA\DBS\DBS.jar"
 pause

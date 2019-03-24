@@ -35,7 +35,7 @@ export class FatoComponent implements OnInit {
   }
 
   download() {
-    var csvData = this.ConvertToCSV(this.listaFato);
+    var csvData = this.gerarTXT(this.listaFato);
     var a = document.createElement("a");
     a.setAttribute('style', 'display:none;');
     document.body.appendChild(a);
@@ -47,7 +47,7 @@ export class FatoComponent implements OnInit {
     return 'success';
   }
 
-  ConvertToCSV(objArray) {
+  gerarTXT(objArray) {
     var array = typeof objArray != 'object' ? JSON.parse(objArray) : objArray;
     var str = '';
     var row = "";

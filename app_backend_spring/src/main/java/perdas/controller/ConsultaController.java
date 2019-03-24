@@ -89,5 +89,11 @@ public class ConsultaController {
 			);
 	}
 
+	@GetMapping(value="/fatoMapa", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Map<String,List<FatoDimensoes>> ctlFatoDimMapa(){
+        HashMap<String,List<FatoDimensoes>> entities = new HashMap<String,List<FatoDimensoes>>();
+        		entities.put("registros",service.FatoDim());
+		return entities;
+		}
 
 }
