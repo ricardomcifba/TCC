@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class FatoService {
 
-  analiseListagemUrl = 'http://localhost:8080/consulta/fatodim';
+  analiseListagemUrl = 'http://EMB641C6765D718:8080/consulta/fatodim';
 
   constructor(private http: HttpClient) { }
 

@@ -13,6 +13,7 @@ import { FatoComponent } from '../../fato/fato.component';
 import { ChartsModule } from 'ng2-charts';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrModule } from 'ngx-toastr';
+import { SobreComponent } from '../../sobre/sobre.component';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { ToastrModule } from 'ngx-toastr';
     VazamentoComponent,
     BairroComponent,
     SetorComponent,
-    FatoComponent
+    FatoComponent,
+    SobreComponent
   ]
 })
 

@@ -5,10 +5,13 @@
     <div class="col-md-12">
       <div class="card">
         <div class="card-header">
-          <h4 class="card-title">Tabela Fato</h4>
-          <button (click)="download()">Exportar Dados</button> 
+          <h4 class="card-title" align="center">Tabela Fato</h4>
+          <button (click)="download()">Exportar Dados</button><br> 
           <!-- Para Alterar pressão da água -->
-<!--           Digite Valor: <input type="text" name="Pressão" size="10" /><button (click)="download()">Alterar Pressão</button> -->
+<!--        Pressão Anterior: <input type="number" [(ngModel)]="pressaoInicial"  placeholder='Digite Valor' value=""/><br>
+       Pressão Nova:     <input type="number" [(ngModel)]="pressaoNova"  placeholder='Digite Valor' value=""/><br>
+           <button (click)="changePressure(pressaoInicial.value, pressaoNova.value)" >Alterar Pressão</button> -->
+
         </div>
         <div class="card-body">
           <div class="table-responsive">
@@ -17,7 +20,7 @@
                 <th>ID Fato</th>
                 <th>Total Registros</th>
                 <th>Perda m³</th>
-                <th class="text-right">Perda Financeira</th>
+                <th>Perda Financeira</th>
                 <th>ID Organização</th>
                 <th>ID Empresa</th>
                 <th>Nome Empresa</th>

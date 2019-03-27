@@ -7,6 +7,7 @@ import { VazamentoComponent } from '../../vazamento/vazamento.component';
 import { BairroComponent } from '../../bairro/bairro.component';
 import { SetorComponent } from '../../setor/setor.component';
 import { FatoComponent } from '../../fato/fato.component';
+import { SobreComponent } from '../../sobre/sobre.component';
 
 
 export const AdminLayoutRoutes: Routes = [
@@ -16,6 +17,7 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'vazamento',        component: VazamentoComponent },
     { path: 'bairro',        component: BairroComponent },
     { path: 'setor',        component: SetorComponent },
-    { path: 'fato',        component: FatoComponent }
+    { path: 'fato',        component: FatoComponent },
+    { path: 'sobre',        component: SobreComponent }
 
 ];

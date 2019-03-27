@@ -19,14 +19,16 @@ export class MapaComponent implements OnInit {
     this.service.listarFato().subscribe(resposta => {
       let latitude = resposta['registros'].map(resposta => resposta.latitude)
       let longitude = resposta['registros'].map(resposta => resposta.longitude)
+      let fato = resposta['registros'].map(resposta => resposta.idFato)
+      let perdaA = resposta['registros'].map(resposta => resposta.perdaAgua)
+      let perdaF = resposta['registros'].map(resposta => resposta.perdaFinanceira)
 
-      let perdaA = resposta['registros'].map(resposta => resposta.perdaA)
 
 
       var markers = [];
       
       //for(let i = 0; i< Object.keys(latitude).length;i++){
-      for (let i = 0; i < 120; i++) {
+      for (let i = 0; i < 1500; i++) {
         //console.log(i)
         var myLatlng = new google.maps.LatLng(latitude[i], longitude[i]);
         //data.push(myLatlng);
@@ -41,7 +43,7 @@ export class MapaComponent implements OnInit {
         //this.contatenar = solicitacao.concat("perda de".concat(perdaA))
         var marker = new google.maps.Marker({
           position: myLatlng,
-          title: ""//solicitacao[0].toString()
+          title: 'idFato: ' + fato[i].toString() + ' Perda de Água: ' + perdaF[i].toString() + 'm³'
         });
 
         markers.push(marker);
@@ -70,7 +72,7 @@ export class MapaComponent implements OnInit {
 
       var markers = [];
       //for(let i = 0; i< Object.keys(latitude).length;i++){
-      for (let i = 0; i < 120; i++) {
+      for (let i = 0; i < 1500; i++) {
         var myLatlng = new google.maps.LatLng(latitude[i], longitude[i]);
         var mapOptions = {
           zoom: 13,
@@ -102,11 +104,11 @@ export class MapaComponent implements OnInit {
 
       var data = [];
       //for(let i = 0; i< Object.keys(latitude).length;i++){
-      for (let i = 0; i < 120; i++) {
+      for (let i = 0; i < 1500; i++) {
         var myLatlng = new google.maps.LatLng(latitude[i], longitude[i]);
         data.push(myLatlng);
         var mapOptions = {
-          zoom: 13,
+          zoom: 8,
           center: myLatlng,
           scrollwheel: true, //Scroll do mouse habilitado
           mapTypeId: google.maps.MapTypeId.ROADMAP

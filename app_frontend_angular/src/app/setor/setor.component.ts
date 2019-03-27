@@ -1,7 +1,7 @@
 
 import { Component } from '@angular/core';
 import { SetorService } from './setor.service';
-import { ChartOptions, ChartType, ChartDataSets } from 'chart.js';
+import { ChartOptions } from 'chart.js';
 import { Chart } from 'chart.js';
 
 @Component({

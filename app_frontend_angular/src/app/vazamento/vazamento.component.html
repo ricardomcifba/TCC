@@ -1,17 +1,17 @@
 <div class="panel-header panel-header-sm">
-</div>
-<div class="main-content">
-  <div class="row">
-    <div class="col-md-12">
-      <div class="card">
-        <div class="card-header">
-          <h4 class="card-title">Registro de Vazamentos</h4>
-          <button (click)="download()">Exportar</button>
-        </div>
-        <div class="card-body">
-          <div class="table-responsive">
-            <table mdbTable class="table table-striped w-auto">
-              <thead class=" text-primary">
+  </div>
+  <div class="main-content">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header">
+            <h4 class="card-title" align="center">Registro de Vazamentos</h4>
+            <button (click)="download()">Exportar</button>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table mdbTable class="table table-hover table-striped">
+                <thead class=" text-primary">
                 <tr>
                   <th>Numero Solicitação</th>
                   <th>Tipo</th>
@@ -56,7 +56,6 @@
                 </tr>
               </tbody>
             </table>
-            <button (click)="download()">Exportar</button>
             <ul *ngIf="pager.pages && pager.pages.length" class="pagination">
               <li [ngClass]="{disabled:pager.currentPage === 1}">
                 <a (click)="setPage(1)">Primeira</a>
