@@ -72,23 +72,20 @@ export class FatoComponent implements OnInit {
     return str;
   }
 
-  pA = null;
-  pN = null;
-  bodyDiv = false;
-
+  pA = 20;
+ 
   changePressure() {
-    this.bodyDiv = true;
-    this.pA = document.getElementById('pressaoInicial');
-    this.pN = document.getElementById('pressaoNova');
+
+    var pN = parseInt((<HTMLInputElement>document.getElementById("pressaoNova")).value);
 
     for (let i = 0; i < Object.keys(this.listaFato).length; i++) {
-      this.listaFato[i].perdaAgua = this.listaFato[i].perdaAgua / Math.sqrt(parseInt(this.pA)) * Math.sqrt(parseInt(this.pN));
-      this.listaFato[i].perdaFinanceira = this.listaFato[i].perdaFinanceira / Math.sqrt(parseInt(this.pA)) * Math.sqrt(parseInt(this.pN));
+      this.listaFato[i].perdaAgua = this.listaFato[i].perdaAgua / Math.sqrt(this.pA) * Math.sqrt(pN);
+      this.listaFato[i].perdaFinanceira = this.listaFato[i].perdaFinanceira / Math.sqrt(this.pA) * Math.sqrt(pN);
     }
     console.log(this.listaFato)
-    return this.listaFato
+    this.pA = pN;
+    return (this.pA,this.listaFato)
   }
-
 
 }
 

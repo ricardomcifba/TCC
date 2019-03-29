@@ -8,10 +8,8 @@
           <h4 class="card-title" align="center">Tabela Fato</h4>
           <button (click)="download()">Exportar Dados</button><br> 
           <!-- Para Alterar pressão da água -->
-<!--        Pressão Anterior: <input type="number" [(ngModel)]="pressaoInicial"  placeholder='Digite Valor' value=""/><br>
-       Pressão Nova:     <input type="number" [(ngModel)]="pressaoNova"  placeholder='Digite Valor' value=""/><br>
-           <button (click)="changePressure(pressaoInicial.value, pressaoNova.value)" >Alterar Pressão</button> -->
-
+          Pressão Atual: <label >{{pA}}</label> <br>
+          <button (click)="changePressure()" >Alterar Pressão</button><input type="number" id="pressaoNova"  placeholder='Digite Valor' /><br>
         </div>
         <div class="card-body">
           <div class="table-responsive">

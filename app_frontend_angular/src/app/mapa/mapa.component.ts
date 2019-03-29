@@ -43,6 +43,7 @@ export class MapaComponent implements OnInit {
         //this.contatenar = solicitacao.concat("perda de".concat(perdaA))
         var marker = new google.maps.Marker({
           position: myLatlng,
+          //icon: '{small_green}',
           title: 'idFato: ' + fato[i].toString() + ' Perda de Água: ' + perdaF[i].toString() + 'm³'
         });
 
