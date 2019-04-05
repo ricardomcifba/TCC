@@ -10,7 +10,7 @@ export const ROUTES: RouteInfo[] = [
 
     { path: '/fato', title: 'Tabela Fato x Dimensões',  icon:'business_briefcase-24', class: '' },
     { path: '/vazamento', title: 'Registros de Vazamento',  icon:'files_paper', class: '' },
-    { path: '/organizacao', title: 'Dimensao Organização',  icon:'files_paper', class: '' },
+    { path: '/organizacao', title: 'Dimensão Organização',  icon:'files_paper', class: '' },
     { path: '/perdas', title: 'Gráfico de Perdas',  icon: 'media-2_sound-wave', class: '' },
     { path: '/setor', title: 'Perdas por Setor',  icon:'business_chart-pie-36', class: '' },
     { path: '/bairro', title: 'Perdas por Bairro',  icon:'business_chart-bar-32', class: '' },

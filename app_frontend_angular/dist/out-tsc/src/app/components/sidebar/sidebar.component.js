@@ -1,14 +1,14 @@
 import * as tslib_1 from "tslib";
 import { Component } from '@angular/core';
 export var ROUTES = [
-    //{ path: '/analise', title: 'Análise',  icon:'files_paper', class: '' },
-    { path: '/fato', title: 'Tabela Fato', icon: 'files_paper', class: '' },
-    { path: '/perdas', title: 'Gráfico de Perdas', icon: 'design_app', class: '' },
-    { path: '/setor', title: 'Perdas por Setor', icon: 'files_paper', class: '' },
-    { path: '/bairro', title: 'Perdas por Bairro', icon: 'files_paper', class: '' },
-    { path: '/organizacao', title: 'Dimensao Organização', icon: 'files_paper', class: '' },
+    { path: '/fato', title: 'Tabela Fato x Dimensões', icon: 'business_briefcase-24', class: '' },
     { path: '/vazamento', title: 'Registros de Vazamento', icon: 'files_paper', class: '' },
-    { path: '/mapa', title: 'Mapa', icon: 'files_paper', class: '' }
+    { path: '/organizacao', title: 'Dimensão Organização', icon: 'files_paper', class: '' },
+    { path: '/perdas', title: 'Gráfico de Perdas', icon: 'media-2_sound-wave', class: '' },
+    { path: '/setor', title: 'Perdas por Setor', icon: 'business_chart-pie-36', class: '' },
+    { path: '/bairro', title: 'Perdas por Bairro', icon: 'business_chart-bar-32', class: '' },
+    { path: '/mapa', title: 'Mapa de Ocorrências', icon: 'location_compass-05', class: '' },
+    { path: '/sobre', title: 'Sobre a Aplicação', icon: 'travel_info', class: '' }
 ];
 var SidebarComponent = /** @class */ (function () {
     function SidebarComponent() {

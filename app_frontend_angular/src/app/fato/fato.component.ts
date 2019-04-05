@@ -73,19 +73,27 @@ export class FatoComponent implements OnInit {
   }
 
   pA = 20;
- 
+  
   changePressure() {
 
     var pN = parseInt((<HTMLInputElement>document.getElementById("pressaoNova")).value);
 
+    if(pN>0){
     for (let i = 0; i < Object.keys(this.listaFato).length; i++) {
       this.listaFato[i].perdaAgua = this.listaFato[i].perdaAgua / Math.sqrt(this.pA) * Math.sqrt(pN);
       this.listaFato[i].perdaFinanceira = this.listaFato[i].perdaFinanceira / Math.sqrt(this.pA) * Math.sqrt(pN);
     }
-    console.log(this.listaFato)
     this.pA = pN;
-    return (this.pA,this.listaFato)
+    return this.listaFato
   }
+  else if (pN ==0){
+    alert("Digite outro valor!");
+  }
+  else{
+    alert("Não existe pressão negativa");
+  }
+  }
+
 
 }
 

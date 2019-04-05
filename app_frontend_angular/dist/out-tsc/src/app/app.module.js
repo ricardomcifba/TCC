@@ -13,6 +13,7 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
 import { BrowserModule } from '@angular/platform-browser';
 import { AgmCoreModule } from '@agm/core';
 import { PagerService } from '../../src/service/index';
+import { GraphQLModule } from './graphql.module';
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -30,7 +31,8 @@ var AppModule = /** @class */ (function () {
                 RouterModule,
                 AppRoutingModule,
                 NgbModule,
-                ToastrModule.forRoot()
+                ToastrModule.forRoot(),
+                GraphQLModule
             ],
             declarations: [
                 AppComponent,

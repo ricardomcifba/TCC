@@ -5,7 +5,7 @@ import 'rxjs/add/operator/map';
 var FatoService = /** @class */ (function () {
     function FatoService(http) {
         this.http = http;
-        this.BairroUrl = 'http://localhost:8080/consulta/bairro';
+        this.BairroUrl = 'http://EMB641C6765D718:8080/consulta/bairro';
     }
     FatoService.listTempo = function () {
         throw new Error("Method not implemented.");

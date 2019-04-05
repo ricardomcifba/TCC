@@ -21,14 +21,13 @@ var OrganizacaoComponent = /** @class */ (function () {
         // pegar página atual
         this.pagedItems = this.listaOrganizacao.slice(this.pager.startIndex, this.pager.endIndex + 1);
     };
-    var _a;
     OrganizacaoComponent = tslib_1.__decorate([
         Component({
             selector: 'app-analise',
             templateUrl: './organizacao.component.html',
             styleUrls: ['./organizacao.component.css']
         }),
-        tslib_1.__metadata("design:paramtypes", [OrganizacaoService, typeof (_a = typeof PagerService !== "undefined" && PagerService) === "function" ? _a : Object])
+        tslib_1.__metadata("design:paramtypes", [OrganizacaoService, PagerService])
     ], OrganizacaoComponent);
     return OrganizacaoComponent;
 }());

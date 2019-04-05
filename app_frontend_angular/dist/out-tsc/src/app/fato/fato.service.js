@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 var FatoService = /** @class */ (function () {
     function FatoService(http) {
         this.http = http;
-        this.analiseListagemUrl = 'http://localhost:8080/consulta/fatodim';
+        this.analiseListagemUrl = 'http://EMB641C6765D718:8080/consulta/fatodim';
     }
     FatoService.prototype.listar = function () {
         return this.http.get(this.analiseListagemUrl);

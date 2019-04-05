@@ -14,6 +14,7 @@ import { FatoComponent } from '../../fato/fato.component';
 import { ChartsModule } from 'ng2-charts';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrModule } from 'ngx-toastr';
+import { SobreComponent } from '../../sobre/sobre.component';
 var AdminLayoutModule = /** @class */ (function () {
     function AdminLayoutModule() {
     }
@@ -34,7 +35,8 @@ var AdminLayoutModule = /** @class */ (function () {
                 VazamentoComponent,
                 BairroComponent,
                 SetorComponent,
-                FatoComponent
+                FatoComponent,
+                SobreComponent
             ]
         })
     ], AdminLayoutModule);

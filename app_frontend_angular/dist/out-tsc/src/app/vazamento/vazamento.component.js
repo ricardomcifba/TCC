@@ -55,14 +55,13 @@ var VazamentoComponent = /** @class */ (function () {
         }
         return str;
     };
-    var _a;
     VazamentoComponent = tslib_1.__decorate([
         Component({
             selector: 'app-vazamento',
             templateUrl: './vazamento.component.html',
             styleUrls: ['./vazamento.component.css']
         }),
-        tslib_1.__metadata("design:paramtypes", [VazamentoService, typeof (_a = typeof PagerService !== "undefined" && PagerService) === "function" ? _a : Object])
+        tslib_1.__metadata("design:paramtypes", [VazamentoService, PagerService])
     ], VazamentoComponent);
     return VazamentoComponent;
 }());

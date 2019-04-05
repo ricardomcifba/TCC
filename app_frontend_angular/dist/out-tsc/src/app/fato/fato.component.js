@@ -8,6 +8,7 @@ var FatoComponent = /** @class */ (function () {
         this.pagerService = pagerService;
         // pagina
         this.pager = {};
+        this.pA = 20;
     }
     FatoComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -24,7 +25,7 @@ var FatoComponent = /** @class */ (function () {
         this.pagedItems = this.listaFato.slice(this.pager.startIndex, this.pager.endIndex + 1);
     };
     FatoComponent.prototype.download = function () {
-        var csvData = this.ConvertToCSV(this.listaFato);
+        var csvData = this.gerarTXT(this.listaFato);
         var a = document.createElement("a");
         a.setAttribute('style', 'display:none;');
         document.body.appendChild(a);
@@ -35,7 +36,7 @@ var FatoComponent = /** @class */ (function () {
         a.click();
         return 'success';
     };
-    FatoComponent.prototype.ConvertToCSV = function (objArray) {
+    FatoComponent.prototype.gerarTXT = function (objArray) {
         var array = typeof objArray != 'object' ? JSON.parse(objArray) : objArray;
         var str = '';
         var row = "";
@@ -57,14 +58,30 @@ var FatoComponent = /** @class */ (function () {
         }
         return str;
     };
-    var _a;
+    FatoComponent.prototype.changePressure = function () {
+        var pN = parseInt(document.getElementById("pressaoNova").value);
+        if (pN > 0) {
+            for (var i = 0; i < Object.keys(this.listaFato).length; i++) {
+                this.listaFato[i].perdaAgua = this.listaFato[i].perdaAgua / Math.sqrt(this.pA) * Math.sqrt(pN);
+                this.listaFato[i].perdaFinanceira = this.listaFato[i].perdaFinanceira / Math.sqrt(this.pA) * Math.sqrt(pN);
+            }
+            this.pA = pN;
+            return this.listaFato;
+        }
+        else if (pN == 0) {
+            alert("Digite outro valor!");
+        }
+        else {
+            alert("Não existe pressão negativa");
+        }
+    };
     FatoComponent = tslib_1.__decorate([
         Component({
             selector: 'app-fato',
             templateUrl: './fato.component.html',
             styleUrls: ['./fato.component.css']
         }),
-        tslib_1.__metadata("design:paramtypes", [FatoService, typeof (_a = typeof PagerService !== "undefined" && PagerService) === "function" ? _a : Object])
+        tslib_1.__metadata("design:paramtypes", [FatoService, PagerService])
     ], FatoComponent);
     return FatoComponent;
 }());

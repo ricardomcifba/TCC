@@ -10,9 +10,23 @@
           </div>
           <div class="card-body">
             <div class="table-responsive">
+                <style>
+                    table, th , td {
+                       border: 1px solid rgb(49, 114, 122);
+                       border-collapse: separate;
+                       padding: 10px;
+                    }
+           
+                    table tr:nth-child(odd) {
+                       background-color: #7dac28;
+                    }
+           
+                    table tr:nth-child(even) {
+                       background-color: #d8f7f0;
+                    }
+                 </style>
               <table mdbTable class="table table-hover table-striped">
                 <thead class=" text-primary">
-                <tr>
                   <th>Numero Solicitação</th>
                   <th>Tipo</th>
                   <th>Especificação</th>
@@ -31,7 +45,6 @@
                   <th>Perda R$</th>
                   <th>Latitude</th>
                   <th>Longitude</th>
-                </tr>
               </thead>
               <tbody>
                 <tr class="text-center" *ngFor="let i of pagedItems">

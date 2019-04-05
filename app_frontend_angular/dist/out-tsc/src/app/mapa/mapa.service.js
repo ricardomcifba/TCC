@@ -4,11 +4,16 @@ import { HttpClient } from '@angular/common/http';
 var MapaService = /** @class */ (function () {
     function MapaService(http) {
         this.http = http;
-        this.mapaUrl = 'http://localhost:8080/vazamento/listmap';
+        this.FatoUrl = 'http://EMB641C6765D718:8080/consulta/fatoMapa';
+        this.mapaUrl = 'http://EMB641C6765D718:8080/vazamento/listmap';
     }
     MapaService.prototype.listar = function () {
         return this.http.get(this.mapaUrl).map(function (resp) { return resp; });
     };
+    MapaService.prototype.listarFato = function () {
+        return this.http.get(this.FatoUrl).map(function (resp) { return resp; });
+    };
+    ;
     MapaService = tslib_1.__decorate([
         Injectable({
             providedIn: 'root'

@@ -98,7 +98,7 @@ public class Consulta {
 				"join bi.endereco_solicitacao e on f.id_endereco = e.id_endereco\r\n" + 
 				"join bi.tipo_servico s on f.id_servico = s.id_servico\r\n" + 
 				"join bi.tempo t on f.id_tempo = t.id_tempo\r\n" + 
-				"order by mes,data_dia";
+				"order by id_fato";
 	
 		 return jdbcTemplate.query(sqlFatoDim, new RowMapper<FatoDimensoes>() {
 

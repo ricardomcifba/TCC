@@ -1,10 +1,10 @@
 <div class="panel-header panel-header-sm">
-</div>
-<div class="main-content">
-  <div class="row">
-    <div class="col-md-12">
-      <div class="card">
-        <div class="card-header">
+  </div>
+  <div class="main-content">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header">
           <h4 class="card-title" align="center">Tabela Fato</h4>
           <button (click)="download()">Exportar Dados</button><br> 
           <!-- Para Alterar pressão da água -->
@@ -12,7 +12,24 @@
           <button (click)="changePressure()" >Alterar Pressão</button><input type="number" id="pressaoNova"  placeholder='Digite Valor' /><br>
         </div>
         <div class="card-body">
+        </div>
+        <div class="card-body">
           <div class="table-responsive">
+              <style>
+                  table, th , td {
+                     border: 1px solid rgb(49, 114, 122);
+                     border-collapse: separate;
+                     padding: 10px;
+                  }
+         
+                  table tr:nth-child(odd) {
+                     background-color: #7dac28;
+                  }
+         
+                  table tr:nth-child(even) {
+                     background-color: #d8f7f0;
+                  }
+               </style>
             <table mdbTable class="table table-striped w-auto">
               <thead class=" text-primary">
                 <th>ID Fato</th>
