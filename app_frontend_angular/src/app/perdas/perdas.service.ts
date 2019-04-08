@@ -17,6 +17,8 @@ export class PerdasService {
 
   //FatoUrl = 'http://EMB641C6765D718:8080/consulta/fatodim';
   //TempoUrl = 'http://EMB641C6765D718:8080/consulta/tempo';
+  //FatoUrl = 'http://10.130.17.5:8080/consulta/fatodim';
+  //TempoUrl = 'http://10.130.17.5:8080/consulta/tempo';
   FatoUrl = 'http://localhost:8080/consulta/fatodim';
   TempoUrl = 'http://localhost:8080/consulta/tempo';
 

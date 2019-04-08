@@ -103,6 +103,9 @@ export class MapaComponent implements OnInit {
       for (let i = 0; i < Object.keys(markers).length; i++)
         markers[i].setMap(map);
 
+        map.controls[google.maps.ControlPosition.TOP_CENTER].push(
+          document.getElementById('legend'));
+
     });
     
 

@@ -25,3 +25,19 @@ body, html {
     padding-right: 0;
 }
 
+#legend {
+    background: white;
+    padding: 10px;
+    top: 5px !important;
+}
+  .display-flex {
+    display: flex;
+  }
+  .legend-box {
+    width: 10px;
+    height: 10px;
+    border: 1px solid;
+    margin-top: 2px;
+    margin-right: 5px;
+  }
+
