@@ -12,7 +12,8 @@ export class SetorService {
   }
 
 
-  OrgUrl = 'http://EMB641C6765D718:8080/consulta/setor';
+//  OrgUrl = 'http://EMB641C6765D718:8080/consulta/setor';
+OrgUrl = 'http://localhost:8080/consulta/setor';
 
   constructor(private http: HttpClient) { }
 
