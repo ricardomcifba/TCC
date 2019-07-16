@@ -27,11 +27,12 @@ export class MapaComponent implements OnInit {
       var x,y;
       var contentString = [];
       var infowindow = [];
-      var url ='https://sites.google.com/a/gmapas.com/home/poligonos-ibge/poligonos-ibge-municipios-bahia/Municipios_BA.kml';
-      //var url ='https://sites.google.com/site/ricardomcifba/mapa/bahia.kml';
+      //var url ='https://sites.google.com/a/gmapas.com/home/poligonos-ibge/poligonos-ibge-municipios-bahia/Municipios_BA.kml';
+      //var url = 'http://www.gmapas.com/poligonos-ibge/poligonos-estados-do-brasil'
+      var url ='SSA.kml';
       
       //for(let i = 0; i< Object.keys(latitude).length;i++){
-      for (let i = 0; i < 1500; i++) {
+      for (let i = 0; i < 2; i++) {
         var myLatlng = new google.maps.LatLng(latitude[i], longitude[i]);
 
         //data.push(myLatlng);

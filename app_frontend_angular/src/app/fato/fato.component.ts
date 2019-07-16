@@ -72,6 +72,7 @@ export class FatoComponent implements OnInit {
     return str;
   }
 
+  //pressão
   pA = 20;
   
   changePressure() {

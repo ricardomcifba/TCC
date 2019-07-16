@@ -17,10 +17,8 @@ var MapaComponent = /** @class */ (function () {
             var x, y;
             var contentString = [];
             var infowindow = [];
-            //var url ='https://sites.google.com/a/gmapas.com/home/poligonos-ibge/poligonos-ibge-municipios-bahia/Municipios_BA.kml';
-            var url = 'https://sites.google.com/site/ricardomcifba/mapa/bahia.kml';
+            var url = 'https://sites.google.com/a/gmapas.com/home/poligonos-ibge/poligonos-ibge-municipios-bahia/Municipios_BA.kml';
             var _loop_1 = function (i) {
-                //for (let i = 0; i < 1000; i++) {
                 myLatlng = new google.maps.LatLng(latitude[i], longitude[i]);
                 //data.push(myLatlng);
                 mapOptions = {
@@ -53,8 +51,8 @@ var MapaComponent = /** @class */ (function () {
                 //Informações sobre o ponto no mapa
                 contentString[i] = 'Total de registros: ' + total[i] +
                     '<br> Perda de água: ' + perdaA[i] + 'm³' +
-                    '<br> Perda financeira: ' + 'R$ ' + perdaF[i]
-                    + '<br> Latitude: ' + latitude[i];
+                    '<br> Perda financeira: ' + 'R$ ' + perdaF[i];
+                // + '<br> Latitude: ' + latitude[i]
                 //Insere a informação no mapa   
                 infowindow[i] = new google.maps.InfoWindow({
                     content: contentString[i]
@@ -72,7 +70,9 @@ var MapaComponent = /** @class */ (function () {
                 });
             };
             var myLatlng, mapOptions, map, marker;
-            for (var i = 0; i < Object.keys(latitude).length; i++) {
+            //var url ='https://sites.google.com/site/ricardomcifba/mapa/bahia.kml';
+            //for(let i = 0; i< Object.keys(latitude).length;i++){
+            for (var i = 0; i < 1500; i++) {
                 _loop_1(i);
             }
             var kmlLayer = new google.maps.KmlLayer({ url: url, suppressInfoWindows: true, preserveViewport: false, map: map });
@@ -80,6 +80,7 @@ var MapaComponent = /** @class */ (function () {
             //insere os marcadores no mapa
             for (var i = 0; i < Object.keys(markers).length; i++)
                 markers[i].setMap(map);
+            map.controls[google.maps.ControlPosition.TOP_CENTER].push(document.getElementById('legend'));
         });
     };
     MapaComponent.prototype.cluster = function () {
@@ -112,7 +113,7 @@ var MapaComponent = /** @class */ (function () {
             var longitude = resposta['registros'].map(function (resposta) { return resposta.longitude; });
             var data = [];
             //for(let i = 0; i< Object.keys(latitude).length;i++){
-            for (var i = 0; i < 500; i++) {
+            for (var i = 0; i < 600; i++) {
                 var myLatlng = new google.maps.LatLng(latitude[i], longitude[i]);
                 data.push(myLatlng);
                 var mapOptions = {

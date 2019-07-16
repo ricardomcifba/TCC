@@ -5,6 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AdminLayoutRoutes } from './admin-layout.routing';
 import { PerdasComponent } from '../../perdas/perdas.component';
 import { MapaComponent } from '../../mapa/mapa.component';
+import { OSMComponent } from '../../osm/osm.component';
 import { OrganizacaoComponent } from '../../organizacao/organizacao.component';
 import { VazamentoComponent } from '../../vazamento/vazamento.component';
 import { BairroComponent } from '../../bairro/bairro.component';
@@ -29,6 +30,7 @@ import { SobreComponent } from '../../sobre/sobre.component';
     PerdasComponent,
     OrganizacaoComponent,
     MapaComponent,
+    OSMComponent,
     VazamentoComponent,
     BairroComponent,
     SetorComponent,

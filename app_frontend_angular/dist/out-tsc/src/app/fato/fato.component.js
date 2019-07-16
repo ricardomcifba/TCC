@@ -8,6 +8,7 @@ var FatoComponent = /** @class */ (function () {
         this.pagerService = pagerService;
         // pagina
         this.pager = {};
+        //pressão
         this.pA = 20;
     }
     FatoComponent.prototype.ngOnInit = function () {

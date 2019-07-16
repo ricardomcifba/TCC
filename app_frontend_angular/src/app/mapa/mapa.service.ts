@@ -6,12 +6,12 @@ import { HttpClient } from '@angular/common/http';
 })
 
 export class MapaService {
- //FatoUrl = 'http://EMB641C6765D718:8080/consulta/fatoMapa';
- //mapaUrl = 'http://EMB641C6765D718:8080/vazamento/listmap';
+ FatoUrl = 'http://EMB641C6765D718:8080/consulta/fatoMapa';
+ mapaUrl = 'http://EMB641C6765D718:8080/vazamento/listmap';
  //FatoUrl = 'http://10.130.17.5:8080/consulta/fatoMapa';
  // mapaUrl = 'http://10.130.17.5:8080/vazamento/listmap';
-  FatoUrl = 'http://localhost:8080/consulta/fatoMapa';
-  mapaUrl = 'http://localhost:8080/vazamento/listmap';
+  //FatoUrl = 'http://localhost:8080/consulta/fatoMapa';
+  //mapaUrl = 'http://localhost:8080/vazamento/listmap';
 
   constructor(private http: HttpClient) { }
 

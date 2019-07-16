@@ -11,9 +11,9 @@ export class FatoService {
     throw new Error("Method not implemented.");
   }
 
-  //BairroUrl = 'http://EMB641C6765D718:8080/consulta/bairro';
+  BairroUrl = 'http://EMB641C6765D718:8080/consulta/bairro';
   //BairroUrl = 'http://10.130.17.5:8080/consulta/bairro';
-  BairroUrl = 'http://localhost:8080/consulta/bairro';
+  //BairroUrl = 'http://localhost:8080/consulta/bairro';
 
   constructor(private http: HttpClient) { }
 

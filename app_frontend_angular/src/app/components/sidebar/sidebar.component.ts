@@ -15,6 +15,7 @@ export const ROUTES: RouteInfo[] = [
     { path: '/setor', title: 'Perdas por Setor',  icon:'business_chart-pie-36', class: '' },
     { path: '/bairro', title: 'Perdas por Bairro',  icon:'business_chart-bar-32', class: '' },
     { path: '/mapa', title: 'Mapa de Ocorrências',  icon:'location_compass-05', class: '' },
+    //{ path: '/osm', title: 'Mapa OSM',  icon:'location_compass-05', class: '' },
     { path: '/sobre', title: 'Sobre a Aplicação',  icon:'travel_info', class: '' }
 
 

@@ -3,6 +3,10 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import 'rxjs/add/operator/map';
 var PerdasService = /** @class */ (function () {
+    //FatoUrl = 'http://10.130.17.5:8080/consulta/fatodim';
+    //TempoUrl = 'http://10.130.17.5:8080/consulta/tempo';
+    //FatoUrl = 'http://localhost:8080/consulta/fatodim';
+    //TempoUrl = 'http://localhost:8080/consulta/tempo';
     function PerdasService(http) {
         this.http = http;
         this.FatoUrl = 'http://EMB641C6765D718:8080/consulta/fatodim';

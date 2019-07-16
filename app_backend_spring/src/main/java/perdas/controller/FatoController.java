@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import perdas.dao.FatoDAO;
 import perdas.model.Fato;
-import perdas.model.Organizacao;
+//import perdas.model.Organizacao;
 import perdas.service.Analise;
 @RestController
 @RequestMapping("/analise")
